@@ -199,5 +199,5 @@ io.on('connection', (socket) => {
 
 
 server.listen(PORT, '0.0.0.0', () => {
-  console.log(`Servidor escuchando en http://almacen.local:${PORT}`);
+  console.log(`Servidor escuchando en http://localhost:${PORT}`);
 });
