@@ -84,7 +84,7 @@ router.get('/obtener-subgrupos/:grupoID', async (req, res) => {
         const subgruposResult = await mssql.query`
             SELECT SubgrupoID, Nombre FROM SubGrupos WHERE GrupoID = ${grupoSeleccionado}
         `;
-        
+
         res.json({ subgrupos: subgruposResult.recordset });
     } catch (error) {
         console.error('Error al obtener subgrupos:', error);
@@ -96,14 +96,15 @@ router.get('/obtener-subgrupos/:grupoID', async (req, res) => {
 router.post('/crear-producto', async (req, res) => {
     console.log('Body recibido:', req.body);
 
-    const { grupo, subgrupo, nombre, unidad, valor } = req.body;
-    
+    const { grupo, subgrupo, nombre, unidad, valor, codBarra } = req.body;
+
     // Verificar que los datos son correctos
     console.log('grupo:', grupo);
     console.log('subgrupo:', subgrupo);
     console.log('nombre:', nombre);
     console.log('unidad:', unidad);
     console.log('valor:', valor);
+    console.log('codBarra:', codBarra);
 
     try {
         // Validación de entrada
@@ -111,7 +112,7 @@ router.post('/crear-producto', async (req, res) => {
         const subgrupoID = parseInt(subgrupo);
         const valorNumerico = parseFloat(valor);
 
-        if (!grupoID || !subgrupoID || !nombre || !unidad || isNaN(valorNumerico) || valorNumerico <= 0) {
+        if (!grupoID || !subgrupoID || !nombre || !unidad || isNaN(valorNumerico) || valorNumerico <= 0 || !codBarra) {
             return res.status(400).json({
                 success: false,
                 message: 'Datos inválidos. Asegúrate de completar todos los campos correctamente.',
@@ -136,8 +137,8 @@ router.post('/crear-producto', async (req, res) => {
 
         // Insertar el nuevo producto
         const query = `
-            INSERT INTO Productos (Nombre, GrupoID, SubgrupoID, UnidadMedida, ValorUnidad)
-            VALUES (@nombre, @grupoID, @subgrupoID, @unidad, @valor)
+            INSERT INTO Productos (Nombre, GrupoID, SubgrupoID, UnidadMedida, ValorUnidad, CodBarra)
+            VALUES (@nombre, @grupoID, @subgrupoID, @unidad, @valor, @codBarra)
         `;
 
         const pool = await mssql.connect();
@@ -147,6 +148,7 @@ router.post('/crear-producto', async (req, res) => {
             .input('subgrupoID', mssql.Int, subgrupoID)
             .input('unidad', mssql.VarChar(50), unidad)
             .input('valor', mssql.Decimal(10, 2), valorNumerico)
+            .input('codBarra', mssql.VarChar(100), codBarra)
             .query(query);
 
         res.status(201).json({ success: true, message: 'Producto creado con éxito.' });

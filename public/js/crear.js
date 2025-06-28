@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     cargarGrupos();
     actualizarGrupos();
 });
@@ -11,27 +11,27 @@ function cargarGrupos() {
             'Content-Type': 'application/json'
         }
     })
-    .then(response => response.json())
-    .then(data => {
-        const grupoSelect = document.getElementById('grupoSelect');
-        const grupoProductoSelect = document.getElementById('grupoProductoSelect');
+        .then(response => response.json())
+        .then(data => {
+            const grupoSelect = document.getElementById('grupoSelect');
+            const grupoProductoSelect = document.getElementById('grupoProductoSelect');
 
-        // Limpiar opciones previas
-        grupoSelect.innerHTML = '<option value="">Selecciona un grupo</option>';
-        grupoProductoSelect.innerHTML = '<option value="">Selecciona un grupo</option>';
+            // Limpiar opciones previas
+            grupoSelect.innerHTML = '<option value="">Selecciona un grupo</option>';
+            grupoProductoSelect.innerHTML = '<option value="">Selecciona un grupo</option>';
 
-        // Agregar nuevas opciones
-        data.grupos.forEach(grupo => {
-            const option = document.createElement('option');
-            option.value = grupo.Nombre; // Usar el nombre del grupo
-            option.textContent = grupo.Nombre; // Mostrar el nombre del grupo
-            grupoSelect.appendChild(option);
-            grupoProductoSelect.appendChild(option.cloneNode(true)); // Clonar para ambos select
+            // Agregar nuevas opciones
+            data.grupos.forEach(grupo => {
+                const option = document.createElement('option');
+                option.value = grupo.Nombre; // Usar el nombre del grupo
+                option.textContent = grupo.Nombre; // Mostrar el nombre del grupo
+                grupoSelect.appendChild(option);
+                grupoProductoSelect.appendChild(option.cloneNode(true)); // Clonar para ambos select
+            });
+        })
+        .catch(error => {
+            console.error('Error al cargar los grupos:', error);
         });
-    })
-    .catch(error => {
-        console.error('Error al cargar los grupos:', error);
-    });
 }
 
 // Crear Grupo
@@ -49,22 +49,22 @@ function crearGrupo() {
         },
         body: JSON.stringify({ nombreGrupo })
     })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            // Limpiar el campo de entrada y mostrar mensaje de éxito
-            document.getElementById('grupoNombre').value = '';
-            document.getElementById('mensajeGrupo').innerHTML = "Grupo creado con éxito.";
-            cargarGrupos();
-        } else {
-            // Mostrar mensaje de que el grupo ya existe
-            document.getElementById('mensajeGrupo').innerHTML = data.message;
-        }
-    })
-    .catch(error => {
-        console.error('Error al crear grupo:', error);
-        document.getElementById('mensajeGrupo').innerHTML = "Hubo un error al crear el grupo.";
-    });
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Limpiar el campo de entrada y mostrar mensaje de éxito
+                document.getElementById('grupoNombre').value = '';
+                document.getElementById('mensajeGrupo').innerHTML = "Grupo creado con éxito.";
+                cargarGrupos();
+            } else {
+                // Mostrar mensaje de que el grupo ya existe
+                document.getElementById('mensajeGrupo').innerHTML = data.message;
+            }
+        })
+        .catch(error => {
+            console.error('Error al crear grupo:', error);
+            document.getElementById('mensajeGrupo').innerHTML = "Hubo un error al crear el grupo.";
+        });
 }
 
 // Crear SubGrupo
@@ -84,20 +84,20 @@ function crearSubGrupo() {
         },
         body: JSON.stringify({ grupoSeleccionado, nombreSubGrupo })
     })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            document.getElementById('subGrupoNombre').value = '';
-            document.getElementById('mensajeSubGrupo').innerHTML = "SubGrupo creado con éxito.";
-            actualizarSubGrupos();
-        } else {
-            document.getElementById('mensajeSubGrupo').innerHTML = data.message || "No se pudo crear el subgrupo.";
-        }
-    })
-    .catch(error => {
-        console.error('Error al crear subgrupo:', error);
-        document.getElementById('mensajeSubGrupo').innerHTML = "Hubo un error al crear el subgrupo.";
-    });
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                document.getElementById('subGrupoNombre').value = '';
+                document.getElementById('mensajeSubGrupo').innerHTML = "SubGrupo creado con éxito.";
+                actualizarSubGrupos();
+            } else {
+                document.getElementById('mensajeSubGrupo').innerHTML = data.message || "No se pudo crear el subgrupo.";
+            }
+        })
+        .catch(error => {
+            console.error('Error al crear subgrupo:', error);
+            document.getElementById('mensajeSubGrupo').innerHTML = "Hubo un error al crear el subgrupo.";
+        });
 }
 
 // Crear Producto
@@ -107,9 +107,10 @@ function crearProducto() {
     const nombreProducto = document.getElementById('productoNombre').value.trim();
     const unidad = document.getElementById('unidadSelect').value;
     const valor = parseFloat(document.getElementById('productoValor').value);
+    const codBarra = document.getElementById('productoCodBarra').value.trim();
 
     // Validaciones
-    if (!grupoSeleccionado || !subGrupoSeleccionado || !nombreProducto || !unidad || isNaN(valor)) {
+    if (!grupoSeleccionado || !subGrupoSeleccionado || !nombreProducto || !unidad || isNaN(valor) || !codBarra) {
         document.getElementById('mensajeProducto').innerHTML = "Completa todos los campos obligatorios.";
         return;
     }
@@ -121,6 +122,7 @@ function crearProducto() {
         nombre: nombreProducto,
         unidad: unidad,
         valor: valor,
+        codbarra: codBarra,
     };
 
     // Enviar la solicitud POST con los datos del producto
@@ -136,6 +138,7 @@ function crearProducto() {
             if (data.success) {
                 document.getElementById('productoNombre').value = '';
                 document.getElementById('productoValor').value = '';
+                document.getElementById('productoCodBarra').value = '';
                 document.getElementById('mensajeProducto').innerHTML = "Producto creado con éxito.";
             } else {
                 document.getElementById('mensajeProducto').innerHTML = data.message || "No se pudo crear el producto.";
@@ -210,12 +213,12 @@ function actualizarSubGrupos() {
 // Función para actualizar la lista de productos disponibles
 function actualizarProductos() {
     fetch('/obtener-productos')
-    .then(response => response.json())
-    .then(data => {
-        // Actualizar cualquier lista de productos si es necesario
-        console.log("Productos actualizados:", data);
-    })
-    .catch(error => console.error('Error al cargar los productos:', error));
+        .then(response => response.json())
+        .then(data => {
+            // Actualizar cualquier lista de productos si es necesario
+            console.log("Productos actualizados:", data);
+        })
+        .catch(error => console.error('Error al cargar los productos:', error));
 }
 
 function resetearCampos() {
@@ -227,6 +230,7 @@ function resetearCampos() {
     document.getElementById('productoNombre').value = "";
     document.getElementById('unidadSelect').selectedIndex = 0;
     document.getElementById('productoValor').value = "";
+    document.getElementById('productoCodBarra').value = "";
 
     // Limpiar mensajes
     document.getElementById('mensajeGrupo').textContent = "";
