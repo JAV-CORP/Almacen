@@ -306,6 +306,25 @@ router.get('/jornada-activa', async (req, res) => {
         res.status(500).json({ jornadaId: null });
     }
 });
+// Buscar producto por código de barras
+router.get('/producto-codbarras/:codbarra', async (req, res) => {
+    const { codbarra } = req.params;
+
+    try {
+        const result = await mssql.query(`
+            SELECT ProductoID FROM Productos WHERE CodBarra = '${codbarra}'
+        `);
+
+        if (result.recordset.length === 0) {
+            return res.status(404).json({ message: 'Producto no encontrado' });
+        }
+
+        res.json({ productoId: result.recordset[0].ProductoID });
+    } catch (error) {
+        console.error('Error al buscar producto por código de barras:', error);
+        res.status(500).json({ message: 'Error interno del servidor' });
+    }
+});
 
 
 module.exports = router;

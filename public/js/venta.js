@@ -153,6 +153,13 @@ function actualizarTotalPedido() {
 
     // Mostrar el total en el elemento correspondiente
     document.getElementById("totalPedido").textContent = "Total: $" + total.toFixed(2);
+
+    document.getElementById('scanerbarra').addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+        buscarProducto();
+    }
+});
+
 }
 
 
@@ -418,3 +425,68 @@ document.getElementById("imprimirBoleta").addEventListener("click", async functi
 window.onload = resetearCampos;
 
 });
+
+// Buscar producto por código de barras
+// router.get('/producto-codbarras/:codbarra', async (req, res) => {
+//     const { codbarra } = req.params;
+
+//     try {
+//         const result = await mssql.query(`
+//             SELECT ProductoID FROM Productos WHERE CodBarra = '${codbarra}'
+//         `);
+
+//         if (result.recordset.length === 0) {
+//             return res.status(404).json({ message: 'Producto no encontrado' });
+//         }
+
+//         res.json({ productoId: result.recordset[0].ProductoID });
+//     } catch (error) {
+//         console.error('Error al buscar producto por código de barras:', error);
+//         res.status(500).json({ message: 'Error interno del servidor' });
+//     }
+// });
+
+
+// -------------------
+// ✅ función fuera del DOMContentLoaded
+async function buscarProducto() {
+    const codbarra = document.getElementById('scanerbarra').value.trim();
+
+    if (!codbarra) {
+        alert('Ingresa un código de barras');
+        return;
+    }
+
+    try {
+        const response = await fetch(`/producto-codbarras/${encodeURIComponent(codbarra)}`);
+        const data = await response.json();
+
+        if (response.ok) {
+            cargarDetalleProducto(data.productoId); // <- ya definida correctamente
+        } else {
+            alert(data.message || 'Producto no encontrado');
+        }
+    } catch (error) {
+        console.error('Error al buscar producto:', error);
+        alert('Ocurrió un error al buscar el producto');
+    }
+}
+
+async function cargarDetalleProducto(productoId) {
+    try {
+        const response = await fetch(`/producto-detalle/${productoId}`);
+        const data = await response.json();
+        const producto = data.producto;
+
+        // Actualizar los detalles del producto
+        document.getElementById("detalleNombre").textContent = producto.Nombre;
+        document.getElementById("detalleNombre").setAttribute("data-producto-id", productoId);
+        document.getElementById("detalleUnidad").textContent = `Unidad: ${producto.UnidadMedida}`;
+        document.getElementById("detalleValor").textContent = `Valor: $${producto.ValorUnidad}`;
+        document.getElementById("detalleStock").textContent = `Stock: ${producto.Stock}`;
+    } catch (error) {
+        console.error("Error al cargar el detalle del producto:", error);
+    }
+}
+
+

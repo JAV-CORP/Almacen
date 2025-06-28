@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Ventas</title>
     <link rel="stylesheet" href="../css/venta.css"> <!-- Incluye tu archivo CSS -->
 </head>
+
 <body>
     <h1 style="text-align: center;">Venta</h1>
-    
+
     <div class="container">
         <div class="section Barras">
-        <h3>Codigo de Barras</h3>
-        <input type="number" id="scanerbarra" placeholder="Ingrese codigo de Barra">
- </div>
+            <h3>Codigo de Barras</h3>
+            <input type="text" id="scanerbarra" placeholder="Ingrese codigo de Barra">
+            <button type="button" onclick="buscarProducto()">Buscar</button>
+        </div>
     </div>
     <div class="container">
         <!-- Sección de Grupos -->
@@ -108,7 +111,7 @@
                 <input type="text" id="motivoCaja" placeholder="Motivo">
 
                 <button id="aceptarCajaChica">Aceptar</button>
-            </div> 
+            </div>
             <div class="saldo-caja-chica">
                 <h3>Saldo Actual:</h3>
                 <p id="saldoCajaChica">$0</p>
@@ -124,4 +127,5 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="../js/venta.js"></script> <!-- Incluir archivo JS -->
 </body>
+
 </html>
