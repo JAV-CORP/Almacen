@@ -7,7 +7,7 @@ const os = require('os');
 const dbConfig = {
   user: 'jorge',
   password: '1001',
-  server: 'almacen.local',// Permite accesibilidad local y en red
+  server: '192.168.1.18',// Permite accesibilidad local y en red
   database: 'Almacen_BD',
   options: {
     encrypt: true,  // Desactívalo si no usas certificados SSL en tu SQL Server
