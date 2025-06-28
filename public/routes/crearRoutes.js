@@ -99,7 +99,7 @@ router.post('/crear-producto', async (req, res) => {
     const { grupo, subgrupo, nombre, unidad, valor, codBarra } = req.body;
 
     // Verificar que los datos son correctos
-    console.log('grupo:', grupo);
+    console.log('grupo:aaaa', grupo);
     console.log('subgrupo:', subgrupo);
     console.log('nombre:', nombre);
     console.log('unidad:', unidad);
@@ -111,6 +111,7 @@ router.post('/crear-producto', async (req, res) => {
         const grupoID = parseInt(grupo);
         const subgrupoID = parseInt(subgrupo);
         const valorNumerico = parseFloat(valor);
+        const codiBarra = codBarra;
 
         if (!grupoID || !subgrupoID || !nombre || !unidad || isNaN(valorNumerico) || valorNumerico <= 0 || !codBarra) {
             return res.status(400).json({
@@ -148,7 +149,7 @@ router.post('/crear-producto', async (req, res) => {
             .input('subgrupoID', mssql.Int, subgrupoID)
             .input('unidad', mssql.VarChar(50), unidad)
             .input('valor', mssql.Decimal(10, 2), valorNumerico)
-            .input('codBarra', mssql.VarChar(100), codBarra)
+            .input('codBarra', mssql.VarChar(50), codiBarra)
             .query(query);
 
         res.status(201).json({ success: true, message: 'Producto creado con éxito.' });

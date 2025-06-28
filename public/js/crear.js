@@ -122,7 +122,7 @@ function crearProducto() {
         nombre: nombreProducto,
         unidad: unidad,
         valor: valor,
-        codbarra: codBarra,
+        codBarra: codBarra,
     };
 
     // Enviar la solicitud POST con los datos del producto
