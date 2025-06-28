@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boleta Pedido</title>
+    <link rel="stylesheet" href="../css/boletaimp.css"> <!-- Incluye tu archivo CSS -->
+</head>
+<body>
+    <!-- Contenedor principal para boleta y herramientas -->
+    <div class="container">
+        <!-- Formato de boleta -->
+        <div class="boleta" id="boleta">
+            <!-- Fecha (esto será actualizado por la función) -->
+            <div class="right editable" id="fecha" contenteditable="false"></div>
+
+            <!-- Nombre del negocio (editable) -->
+            <h2 class="center editable" id="nombreNegocio" contenteditable="true"></h2>
+
+        <!-- Información de contacto -->
+<div class="center editable" id="info-contacto">
+    <div id="rut" contenteditable="true"></div>
+    <div id="direccion" contenteditable="true"></div>
+    <div id="telefono" contenteditable="true"></div>
+    <div id="correo" contenteditable="true"></div>
+</div>
+<br>
+<br>
+    <!-- Imagen (mostrará solo si la función se la pasa) -->
+<div class="center">
+    <div id="imagenBoleta" class="imagenBoleta" style="max-width: 100px; display: none;">
+        <img src="../Imagenes/" alt="Imagen" id="imagenMostrar" style="width: 100%; height: auto;">
+    </div>
+</div>
+
+
+            <!-- Número de venta -->
+            <div class="left editable" id="ventaID" contenteditable="false"></div>
+
+            <!-- Productos (lista de productos será actualizada por la función) -->
+            <div class="left" id="productos">
+                <p><strong>Productos:</strong></p>
+                <p>Nombre ------------ Cantidad---------SubTotal</p>
+                <div class="editable" id="listaProductos" contenteditable="false"></div>
+            </div>
+
+            <!-- Total (será actualizado por la función) -->
+            <div class="right editable" id="total" contenteditable="false"></div>
+
+            <!-- Mensaje personalizado (editable) -->
+            <div class="center spacer editable" id="mensaje" contenteditable="true"></div>
+        </div>
+    </div>
+
+    <script src="../js/boletaimp.js"></script>
+</body>
+</html>

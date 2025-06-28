@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadísticas de Ventas</title>
+    <link rel="stylesheet" href="../css/estadisticas.css">
+    <!-- Incluye Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <h1>Estadísticas de Ventas</h1>
+    
+    <!-- Sección de Ventas Diarias -->
+    <section>
+        <h2>Ventas Detalladas por Día</h2>
+        <label for="fechaDia">Selecciona un día:</label>
+        <input type="date" id="fechaDia">
+        <button id="btnDia">Ver Ventas</button>
+        <table border="1" id="tablaVentasDia">
+            <thead>
+                <tr>
+                    <th>Fecha Venta</th>
+                    <th>Venta ID</th>
+                    <th>Nombre</th>
+                    <th>Cantidad</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4"><strong>Total del Día:</strong></td>
+                    <td id="totalDia"></td>
+                </tr>
+            </tfoot>
+        </table>
+        <button onclick="exportarCSV('tablaVentasDia', 'Ventas_Diarias')">Exportar CSV</button>
+        <button onclick="exportarTXT('tablaVentasDia', 'Ventas_Diarias')">Exportar TXT</button>
+        <button onclick="imprimirTabla('tablaVentasDia')">Imprimir</button>
+    </section>
+    
+    <!-- Sección de Resumen de Ventas Totales -->
+    <section>
+        <h2>Resumen de Ventas Totales</h2>
+        <label for="fechaMes">Selecciona un mes:</label>
+        <input type="text" id="fechaMes"> <!-- Cambiado a tipo text para usar Flatpickr -->
+        <button id="btnMes">Ver Resumen</button>
+        <table border="1" id="tablaVentasMes">
+            <thead>
+                <tr>
+                    <th>Fecha Venta</th>
+                    <th>Tipo de Pago</th>
+                    <th>Total Venta</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2"><strong>Total del Mes:</strong></td>
+                    <td id="totalMes"></td>
+                </tr>
+            </tfoot>
+        </table>
+        <button onclick="exportarCSV('tablaVentasMes', 'Ventas_Mensuales')">Exportar CSV</button>
+        <button onclick="exportarTXT('tablaVentasMes', 'Ventas_Mensuales')">Exportar TXT</button>
+        <button onclick="imprimirTabla('tablaVentasMes')">Imprimir</button>
+    </section>
+
+    <div class="buttons-container">
+ 
+        <button id="btnmenu" onclick="window.location.href='../html/menuprin.html'">Menú Principal</button>
+    </div>
+
+    <!-- Incluye jQuery (si no lo has incluido aún) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Incluye Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="../js/estadisticas.js"></script>
+
+    <!-- Inicialización de Flatpickr para el campo de fecha de mes -->
+    <script>
+        flatpickr("#fechaMes", {
+            mode: "single",           // Selección de un solo mes
+            dateFormat: "Y-m",        // Formato YYYY-MM
+            defaultDate: "today",     // Fecha por defecto (opcional)
+            minDate: "2023-01",       // Fecha mínima (opcional)
+            maxDate: "2025-12",       // Fecha máxima (opcional)
+            monthSelectorType: "static", // Mostrar solo mes y año
+        });
+    </script>
+</body>
+</html>

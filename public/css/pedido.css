@@ -1,0 +1,68 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #61a5c2;
+}
+
+h1 {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Sección del pedido */
+.order-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+/* Contenedor donde se agregarán los pedidos */
+#pedidoList {
+    display: flex;
+    flex-direction: column; /* Apilar productos uno debajo del otro */
+    gap: 10px; /* Espacio entre productos */
+    margin-bottom: 20px;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden; /* Evita el desplazamiento horizontal */
+}
+
+/* Cada producto dentro de la lista */
+.pedido-item {
+    display: flex;
+    justify-content: space-between; /* Alinear nombre, cantidad y precio en una fila */
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+/* Estilos para cada dato dentro del pedido */
+.pedido-item span {
+    flex: 1; /* Distribuye los elementos uniformemente */
+    text-align: center;
+    font-size: 1em;
+}
+
+/* Asegura que el total del pedido esté alineado correctamente */
+.order-total {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: right;
+}

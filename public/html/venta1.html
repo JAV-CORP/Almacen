@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Ventas</title>
+    <link rel="stylesheet" href="../css/venta.css"> <!-- Incluye tu archivo CSS -->
+</head>
+<body>
+    <h1 style="text-align: center;">Venta</h1>
+    <div class="container">
+        <!-- Sección de Grupos -->
+        <div class="section grupo">
+            <h2>Grupos</h2>
+            <div id="grupos" class="button-list">
+                <!-- Botones de grupos generados dinámicamente -->
+            </div>
+        </div>
+        <!-- Sección de Subgrupos -->
+        <div class="section subgrupo">
+            <h2>Subgrupos</h2>
+            <div id="subgrupos" class="button-list">
+                <!-- Botones de subgrupos generados dinámicamente -->
+            </div>
+        </div>
+        <!-- Sección de Productos y Detalle -->
+        <div class="product-detail-section">
+            <!-- Sección de Productos -->
+            <div class="section producto">
+                <h2>Productos</h2>
+                <div id="productos" class="button-list">
+                    <!-- Botones de productos generados dinámicamente -->
+                </div>
+            </div>
+            <!-- Sección de Detalle -->
+            <div class="section detalle">
+                <h2>Detalle</h2>
+                <h3 id="detalleNombre">Nombre del producto</h3>
+                <p id="detalleUnidad">Unidad:</p>
+                <p id="detalleValor">Valor:</p>
+                <p id="detalleStock">Stock:</p>
+                <input type="number" id="detalleCantidad" placeholder="Cantidad">
+                <button id="calcularCosto">Calcular</button>
+                <p id="detalleCosto">Costo: $0</p>
+                <button id="ingresarPedido">Ingresar Pedido</button>
+            </div>
+        </div>
+        <!-- Sección de Pedido -->
+        <div class="order-section pedido">
+            <h2>Pedido</h2>
+            <div id="pedidoList" class="order-list">
+                <!-- Lista de productos seleccionados -->
+            </div>
+            <div id="totalPedido" class="order-total">Total: $0</div>
+
+            <!-- Método de pago -->
+            <div class="payment-section">
+                <label for="metodoPago">Método de Pago:</label>
+                <select id="metodoPago">
+                    <option value="efectivo">Efectivo</option>
+                    <option value="tarjeta">Tarjeta</option>
+                    <option value="transferencia">Transferencia</option>
+                </select>
+            </div>
+
+            <!-- Monto recibido -->
+            <div class="payment-section">
+                <label for="montoRecibido">Con cuánto paga:</label>
+                <input type="number" id="montoRecibido" placeholder="Monto recibido">
+            </div>
+
+            <!-- Vuelto -->
+            <div class="payment-section">
+                <p id="vuelto">Vuelto: $0</p>
+            </div>
+
+            <div class="order-actions">
+                <button id="enviarPedido">Enviar Pedido</button>
+                <button id="eliminarPedido" class="delete">Eliminar Pedido</button>
+            </div>
+            <br>
+            <div class="imprimir-actions">
+                <button id="imprimirBoleta">Imprimir Pedido</button>
+            </div>
+        </div>
+
+        <!-- Sección de Caja Chica (debajo de Pedido) -->
+        <div class="caja-chica-section">
+            <h2>Caja Chica</h2>
+            <div class="caja-chica-inputs">
+                <label for="tipoCaja">Tipo:</label>
+                <select id="tipoCaja">
+                    <option value="entrada">Entrada</option>
+                    <option value="salida">Salida</option>
+                </select>
+
+                <label for="montoCaja">Monto:</label>
+                <input type="number" id="montoCaja" placeholder="Monto">
+
+                <label for="motivoCaja">Motivo:</label>
+                <input type="text" id="motivoCaja" placeholder="Motivo">
+
+                <button id="aceptarCajaChica">Aceptar</button>
+            </div> 
+            <div class="saldo-caja-chica">
+                <h3>Saldo Actual:</h3>
+                <p id="saldoCajaChica">$0</p>
+            </div>
+            <!-- Botones de acciones de Caja Chica -->
+            <div class="caja-chica-actions">
+                <button id="terminarJornada">Terminar Jornada</button>
+                <button id="menuPrincipalBtn">Menú Principal</button>
+            </div>
+        </div>
+
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../js/venta.js"></script> <!-- Incluir archivo JS -->
+</body>
+</html>

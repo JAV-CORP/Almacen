@@ -1,0 +1,100 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #61a5c2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+        background-image: url('/public/Imagenes/logo\ jav.png'); /* Ruta de la imagen */
+        background-repeat: repeat; /* Hace que la imagen se repita en ambas direcciones */
+        background-position: top left; /* Ajusta la posición inicial */
+        background-size:25%; /* Mantiene el tamaño original de la imagen */
+    
+}
+
+/* Contenedor del login */
+.login-container {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+}
+
+/* Título */
+.login-container h2 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Mensaje de bienvenida */
+.login-container p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Campos de entrada */
+.login-container label {
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #333;
+}
+
+.login-container input {
+    width: 90%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Botón */
+.login-container button {
+    width: 100%;
+    background: #1055b1;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.login-container button:hover {
+    background: #012a4a;
+}
+
+/* Mensaje de error */
+.mensaje-error {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Contenedor del botón Salir */
+.logout-container {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.logout-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 300px;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visor de Pedidos</title>
+    <link rel="stylesheet" href="../css/pedido.css"> <!-- Incluye tu archivo CSS -->
+</head>
+<body>
+    <h1 style="text-align: center;">Visor de Pedidos</h1>
+    <div class="container">
+        <div class="order-section pedido">
+            <h2>Pedidos en Tiempo Real</h2>
+            <!-- Contenedor donde se agregarán los pedidos -->
+            <div id="pedidoList" class="order-list">
+                <!-- Lista de pedidos replicada en tiempo real -->
+            </div>
+
+            <!-- Mostrar el total del pedido -->
+            <div id="totalPedido" class="order-total">
+                Total: $0
+            </div>
+        </div>
+    </div>
+
+    <!-- Importar librería de socket.io y tu archivo JavaScript -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../js/pedido.js"></script> <!-- Incluir archivo JS -->
+</body>
+</html>

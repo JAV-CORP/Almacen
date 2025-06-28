@@ -1,0 +1,121 @@
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    margin: 7px;
+    background-color: #61a5c2; /* Fondo de la página */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: white;
+    font-size: 60px;
+}
+
+.form-group, .form-subgroup {
+    margin-bottom: 20px;
+    height: 120px;
+    width: 300px;
+}
+.form-stock {
+    display: flex;
+    align-items: center; /* Alinear verticalmente */
+    justify-content: flex-end; /* Alinear a la derecha */
+    gap: 10px; /* Espaciado entre elementos */
+    padding: 10px;
+    border-radius: 5px;
+    width: 79%;
+}
+
+.form-stock label {
+    font-weight: bold;
+}
+
+.form-stock input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-stock button {
+    background-color: #1055b1;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 80px;
+}
+
+.form-stock button:hover {
+    background-color: #012a4a;
+}
+
+#mensajeStock {
+    color: red;
+    font-weight: bold;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+select, input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #000000;
+    background-color: white;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: white;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #1055b1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #012a4a;
+}
+
+.actions {
+    text-align: center;
+}
+
+.actions button {
+    margin: 0 10px;
+}
+
+.container-select {
+    text-align: center;
+    padding: 20px;
+ display: ruby;
+ height: 70px;
+font-size: 30px;
+}

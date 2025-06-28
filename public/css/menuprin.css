@@ -1,0 +1,68 @@
+/* style.css */
+
+/* Diseño global */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #61a5c2; /* Fondo de la página */
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden; /* Evita el desplazamiento horizontal */
+}
+
+/* Contenedor principal */
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Título centrado y separado del resto */
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px; /* Espaciado debajo del título */
+}
+
+/* Contenedor para la imagen */
+.image-container {
+    margin-bottom: 20px; /* Espacio entre la imagen y los botones */
+}
+
+/* Estilos para la imagen */
+.image-container img {
+    max-width: 100%;  /* Asegura que la imagen no sea más grande que el contenedor */
+    height: auto;     /* Mantiene la proporción de la imagen */
+}
+
+/* Estilos para los botones */
+.buttons button {
+    margin: 10px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    background-color: #1055b1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Efecto al pasar el ratón por encima de los botones */
+.buttons button:hover {
+    background-color: #012a4a;
+}
+
+#cerrarSesionBtn{
+    margin: 10px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}

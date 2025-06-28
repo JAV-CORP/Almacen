@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock de Productos</title>
+    <link rel="stylesheet" href="../css/stock.css"> <!-- Opcional -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 15px;
+            cursor: pointer;
+            
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Stock Disponible</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre del Producto</th>
+                <th>Cantidad Disponible</th>
+            </tr>
+        </thead>
+        <tbody id="stockTabla">
+            <!-- Aquí se cargarán los productos dinámicamente -->
+        </tbody>
+    </table>
+<Div class="button">
+    <button onclick="imprimirStock()">Imprimir</button>
+    <button onclick="guardarStock()">Guardar</button>
+</Div>
+
+<div class="actions">
+        
+    <button onclick="window.location.href='../html/menuprin.html'">Menú Principal</button>
+</div>
+
+    <script src="../js/stockDisponible.js"></script>
+
+</body>
+</html>

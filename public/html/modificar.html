@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Datos</title>
+    <link rel="stylesheet" href="../css/modificar.css">
+</head>
+<body>
+    <header>
+        <h1>Modificar Datos</h1>
+    </header>
+    <main>
+        <!-- Modificar Grupos -->
+        <section>
+            <h2>Modificar Grupos</h2>
+            <label for="grupo-lista">Seleccionar Grupo:</label>
+            <select id="grupo-lista">
+                <option value="">Selecciona un grupo</option>
+                <!-- Opciones cargadas dinámicamente -->
+            </select>
+            <label for="grupo-nuevo-nombre">Nuevo Nombre del Grupo:</label>
+            <input type="text" id="grupo-nuevo-nombre" placeholder="Ingrese el nuevo nombre del grupo">
+            <button id="grupo-modificar-btn">Modificar Grupo</button>
+        </section>
+
+        <!-- Modificar Subgrupos -->
+        <section>
+            <h2>Modificar Subgrupos</h2>
+            <label for="subgrupo-grupo-lista">Seleccionar Grupo:</label>
+            <select id="subgrupo-grupo-lista">
+                <option value="">Selecciona un grupo</option>
+            </select>
+            <label for="subgrupo-lista">Seleccionar Subgrupo:</label>
+            <select id="subgrupo-lista">
+                <option value="">Selecciona un subgrupo</option>
+            </select>
+            <label for="subgrupo-nuevo-nombre">Nuevo Nombre del Subgrupo:</label>
+            <input type="text" id="subgrupo-nuevo-nombre" placeholder="Ingrese el nuevo nombre del subgrupo">
+            <button id="subgrupo-modificar-btn">Modificar Subgrupo</button>
+        </section>
+
+        <!-- Modificar Productos -->
+        <section>
+            <h2>Modificar Productos</h2>
+            <label for="producto-grupo-lista">Seleccionar Grupo:</label>
+            <select id="producto-grupo-lista">
+                <option value="">Selecciona un grupo</option>
+            </select>
+            <label for="producto-subgrupo-lista">Seleccionar Subgrupo:</label>
+            <select id="producto-subgrupo-lista">
+                <option value="">Selecciona un subgrupo</option>
+            </select>
+            <label for="producto-lista">Seleccionar Producto:</label>
+            <select id="producto-lista">
+                <option value="">Selecciona un producto</option>
+            </select>
+            <label for="producto-nuevo-nombre">Nuevo Nombre del Producto:</label>
+            <input type="text" id="producto-nuevo-nombre" placeholder="Ingrese el nuevo nombre del producto">
+            <label for="producto-nuevo-valor">Nuevo Valor del Producto:</label>
+            <input type="number" id="producto-nuevo-valor" placeholder="Ingrese el nuevo valor">
+            <button id="producto-modificar-btn">Modificar Producto</button>
+        </section>
+
+       
+    </main>
+    <!-- Botones para redirigir -->
+    <div class="buttons-container">
+        <button onclick="window.location.href='../html/inventario.html'">Volver</button>
+        <button onclick="window.location.href='../html/menuprin.html'">Menú Principal</button>
+    </div>
+
+    <script src="../js/modificar.js"></script>
+</body>
+</html>

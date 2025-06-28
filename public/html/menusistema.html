@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Sistema</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            height: 100vh;
+            
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+        }
+
+        /* Contenedor de botones alineados a la izquierda */
+        .sidebar {
+            width: 200px;
+            height: 100%;
+            background-color: #61a5c2;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .sidebar button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #1055b1;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .sidebar button:hover {
+            background-color: #012a4a;
+        }
+
+        /* Contenedor de contenido principal */
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        /* Estilo para el contenido que se carga debajo de los botones */
+        .content {
+            display: none;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .content.active {
+            display: block;
+        }
+
+        iframe {
+            width: 55%;
+            height: 600px;
+            border:blue;
+        }
+
+          /* Asegurar que el botón "Volver Atrás" esté abajo del todo */
+          .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            flex-grow: 1;
+        }
+
+        #volverAtrasBtn {
+            margin-top: auto; /* Empuja el botón hacia abajo */
+            background-color: #d9534f; /* Rojo para destacar */
+            text-align: center;
+        }
+
+        #volverAtrasBtn:hover {
+            background-color: #c9302c;
+        }
+        
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Sidebar con botones alineados a la izquierda -->
+    <div class="sidebar">
+        <button id="gestionUsuariosBtn">Gestión Usuarios</button>
+        <button id="diseñoBoletaBtn">Diseño Boleta</button>
+    <button id="volverAtrasBtn">Volver Atrás</button>
+</div>
+
+    <!-- Contenedor para el contenido principal -->
+    <div class="main-content">
+        <!-- Contenedor para cargar el contenido de Gestión de Usuarios -->
+        <div id="gestionUsuariosContent" class="content">
+            <iframe src="gestionUsuarios.html" title="Gestión de Usuarios"></iframe>
+        </div>
+
+        <!-- Contenedor para cargar el contenido de Diseño de Boleta -->
+        <div id="diseñoBoletaContent" class="content">
+            <iframe src="boleta.html" title="Diseño de Boleta"></iframe>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Manejador de clic para "Gestión Usuarios"
+    document.getElementById('gestionUsuariosBtn').addEventListener('click', function() {
+        const gestionUsuariosContent = document.getElementById('gestionUsuariosContent');
+        const diseñoBoletaContent = document.getElementById('diseñoBoletaContent');
+
+        // Mostrar el contenido de "Gestión Usuarios" y ocultar el de "Diseño Boleta"
+        gestionUsuariosContent.classList.add('active');
+        diseñoBoletaContent.classList.remove('active');
+    });
+
+    // Manejador de clic para "Diseño Boleta"
+    document.getElementById('diseñoBoletaBtn').addEventListener('click', function() {
+        const diseñoBoletaContent = document.getElementById('diseñoBoletaContent');
+        const gestionUsuariosContent = document.getElementById('gestionUsuariosContent');
+
+        // Mostrar el contenido de "Diseño Boleta" y ocultar el de "Gestión Usuarios"
+        diseñoBoletaContent.classList.add('active');
+        gestionUsuariosContent.classList.remove('active');
+    });
+
+     // Manejador de clic para "Volver Atrás"
+     document.getElementById('volverAtrasBtn').addEventListener('click', function() {
+        window.history.back();
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Caja</title>
+    <link rel="stylesheet" href="../css/gestionCaja.css"> <!-- Opcional -->
+</head>
+<body>
+    <header>
+        <h1>Gestión de Caja</h1>
+    </header>
+    <main>
+        <!-- Sección Ventas Totales -->
+        <section id="ventasTotales">
+            <h2>Ventas Totales de la Jornada</h2>
+            <p id="totalVentas">Total de Ventas: $0.00</p>
+            <h3>Detalle por Método de Pago</h3>
+            <ul>
+                <li id="ventasEfectivo">Total en Efectivo: $0.00</li>
+                <li id="ventasTarjeta">Total en Tarjetas: $0.00</li>
+                <li id="ventasTransferencia">Total en Transferencias: $0.00</li>
+            </ul>
+        </section>
+
+        <!-- Sección Cierre de Caja -->
+        <section id="cierreCaja">
+            <h2>Cierre de Caja</h2>
+            <label for="efectivoCaja">Total de Efectivo en Caja:</label>
+            <input type="number" id="efectivoCaja" placeholder="Ingrese el monto en efectivo">
+
+            <p id="montoCajaChica">Monto de Caja Chica: $0.00</p>
+            <p id="diferenciaCaja">Diferencia: $0.00</p>
+
+            <button id="btnCerrarCaja">Cerrar Caja</button>
+        </section>
+
+        <!-- Sección Movimientos Caja Chica -->
+        <section id="movimientosCajaChica">
+            <h2>Movimientos de Caja Chica</h2>
+
+            <!-- Formulario para seleccionar la fecha -->
+            <form id="formSeleccionFecha">
+                <label for="fecha">Fecha:</label>
+                <input type="date" id="fecha" name="fecha" required>
+                <button type="submit">Mostrar Jornadas</button>
+            </form>
+
+            <!-- Sección para mostrar las jornadas disponibles después de seleccionar una fecha -->
+            <div id="seleccionJornada">
+                <label for="jornada">Jornada:</label>
+                <select id="jornada" name="jornada" required>
+                    <!-- Las jornadas se cargarán aquí dinámicamente -->
+                </select>
+                <button id="mostrarMovimientos">Mostrar Movimientos</button>
+            </div>
+
+            <!-- Lista de Movimientos de Entrada -->
+            <div id="listaMovimientosEntrada">
+                <h3>Movimientos de Entrada</h3>
+                <ul id="entradaLista">
+                    <!-- Los movimientos de entrada se cargarán aquí -->
+                </ul>
+            </div>
+
+            <!-- Lista de Movimientos de Salida -->
+            <div id="listaMovimientosSalida">
+                <h3>Movimientos de Salida</h3>
+                <ul id="salidaLista">
+                    <!-- Los movimientos de salida se cargarán aquí -->
+                </ul>
+            </div>
+
+        </section>
+
+    </main>
+    <footer>
+        <button id="btnVolver">Volver</button>
+        <button id="btnMenuPrincipal">Menú Principal</button>
+    </footer>
+    <script src="../js/gestionCaja.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    text-align: center;
+    background-color: #61a5c2;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden; /* Evita el desplazamiento horizontal */
+}
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.boleta {
+    width: 350px; /* Ancho de la boleta ajustado a 58mm */
+    border: 1px solid black;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 10px; /* Ajustar tamaño de fuente para caber en el formato pequeño */
+    background-color: white;
+}
+
+.editable {
+    border: 1px dashed gray;
+    min-height: 20px;
+    padding: 5px;
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
+
+.left {
+    text-align: left;
+}
+
+.spacer {
+    margin-top: 50px;
+}
+
+/* Ajustamos el nombre del negocio */
+#nombreNegocio {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Ajustamos el tamaño de los campos debajo del nombre del negocio */
+#rut,
+#direccion,
+#telefono,
+#correo {
+    font-size: 10px;
+    line-height: 1.1;
+    text-align: center;
+    display: block;
+    margin: 1px 0;
+}
+
+/* Ajustamos la imagen de la boleta */
+#imagenBoleta {
+    display: block;
+    margin: 5px auto;
+    max-width: 90%; /* Ajustar el tamaño de la imagen */
+}
+
+/* Ajustamos el número de venta y productos con una línea separadora */
+#ventaID,
+#total {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    margin: 10px 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+/* Estilo para los selectores de fuente y color fuera de la boleta */
+.tools {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: center;
+}
+
+.tools div {
+    margin-bottom: 15px;
+}
+
+.fontSelect, .colorSelect {
+    padding: 5px;
+    margin-left: 10px;
+}
+
+.btn {
+background-color: #1055b1;
+text-align: center;
+width: 150px;
+height: 80px;
+border: none;
+border-radius: 5px;
+font-weight: bold;
+font-size: large;
+}
+
+#guardarFormato {
+    background-color: gray;
+    width: 150px;
+    height: 80px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios</title>
+    <link rel="stylesheet" href="../css/gesusuarios.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Sección Crear Usuario -->
+    <div class="section" id="crearUsuario">
+        <h2>Crear Usuario</h2>
+        <form id="crearUsuarioForm">
+            <div class="form-group">
+                <label for="nombreCrear">Nombre:</label>
+                <input type="text" id="nombreCrear" name="nombreCrear" required>
+            </div>
+            <div class="form-group">
+                <label for="contraseñaCrear">Contraseña:</label>
+                <input type="password" id="contraseñaCrear" name="contraseñaCrear" required>
+            </div>
+            <div class="form-group">
+                <label for="rolCrear">Rol:</label>
+                <select id="rolCrear" name="rolCrear" required>
+                    <option value="cajero">Cajero</option>
+                    <option value="vendedor">Vendedor</option>
+                    <option value="admin">Administrador</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit">Crear Usuario</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Sección Modificar Usuario -->
+    <div class="section" id="modificarUsuario">
+        <h2>Modificar Usuario</h2>
+        <form id="modificarUsuarioForm">
+            <div class="form-group">
+                <label for="nombreModificar">Nombre de Usuario:</label>
+                <input type="text" id="nombreModificar" name="nombreModificar" required>
+            </div>
+            <div class="form-group">
+                <label for="nuevaContraseñaModificar">Nueva Contraseña:</label>
+                <input type="password" id="nuevaContraseñaModificar" name="nuevaContraseñaModificar">
+            </div>
+            <div class="form-group">
+                <label for="nuevoRolModificar">Nuevo Rol:</label>
+                <select id="nuevoRolModificar" name="nuevoRolModificar">
+                    <option value="cajero">Cajero</option>
+                    <option value="vendedor">Vendedor</option>
+                    <option value="admin">Administrador</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit">Modificar Usuario</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Sección Desbloquear Usuario -->
+<div class="section" id="desbloquearUsuario">
+    <h2>Desbloquear Usuario</h2>
+    <form id="desbloquearUsuarioForm">
+        <div class="form-group">
+            <label for="nombreDesbloquear">Nombre de Usuario:</label>
+            <input type="text" id="nombreDesbloquear" name="nombreDesbloquear" required>
+            <ul id="coincidencias" class="coincidencias-list"></ul> <!-- Lista de coincidencias -->
+        </div>
+        <div class="form-group">
+            <button type="submit">Desbloquear Usuario</button>
+        </div>
+    </form>
+</div>
+
+
+</div>
+
+<script src="../js/gesusuarios.js"></script>
+</body>
+</html>

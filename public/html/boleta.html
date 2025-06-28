@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseñar Formato de Boleta</title>
+    <link rel="stylesheet" href="../css/boleta.css"> <!-- Incluye tu archivo CSS -->
+</head>
+<body>
+    <h2>Editar Formato de Boleta</h2>
+
+    <!-- Contenedor principal para boleta y herramientas -->
+    <div class="container">
+        <!-- Formato de boleta -->
+        <div class="boleta" id="boleta">
+            <div class="right editable" id="fecha" contenteditable="false">Fecha:</div>
+            <h2 class="center editable" id="nombreNegocio" contenteditable="true">Nombre del Negocio</h2>
+            <div class="center editable" id="rut" contenteditable="true">RUT: </div>
+            <div class="center editable" id="direccion" contenteditable="true">Dirección del negocio</div>
+            <div class="center editable" id="telefono" contenteditable="true">Teléfono: </div>
+            <div class="center editable" id="correo" contenteditable="true">Correo: </div>
+
+            <div class="center">
+                <input type="file" id="imagenInput" accept="image/*">
+                <img id="imagenBoleta" src="" alt="Imagen" style="max-width: 100px; display: none;">
+            </div>
+
+            <div class="left editable" id="ventaID" contenteditable="false">Número de Venta: </div>
+            <div class="left" id="productos">
+                <p><strong>Productos:</strong></p>
+                <div class="editable" id="listaProductos" contenteditable="false"></div>
+            </div>
+            <div class="right editable" id="total" contenteditable="false">Total: </div>
+            <div class="center spacer editable" id="mensaje" contenteditable="true">Mensaje personalizado aquí</div>
+        </div>
+
+        <!-- Herramientas para editar fuente y color -->
+        <div class="tools">
+            <div>
+                <label for="fontSelect">Fuente:</label>
+                <select class="fontSelect">
+                    <option value="Roboto">Roboto</option>
+                    <option value="Oswald">Oswald</option>
+                    <option value="Montserrat">Montserrat</option>
+                    <option value="Playfair Display">Playfair Display</option>
+                    <option value="Arial">Arial</option>
+                    <option value="Courier New">Courier New</option>
+                    <option value="Verdana">Verdana</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Tahoma">Tahoma</option>
+                    <option value="Trebuchet MS">Trebuchet MS</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="colorSelect">Color:</label>
+                <input type="color" class="colorSelect" title="Selecciona un color">
+            </div>
+<br>
+<br>
+            <button id="guardarFormato">Guardar Formato</button>
+
+        </div>
+        
+    </div>
+
+
+
+    <script src="../js/boleta.js"></script>
+</body>
+</html>

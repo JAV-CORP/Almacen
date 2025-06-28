@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear - Inventario</title>
+    <link rel="stylesheet" href="../css/crear.css"> <!-- Incluye tu archivo CSS -->
+</head>
+<body>
+    <div class="container">
+        <h1 class="center">Crear Grupo, SubGrupo y Producto</h1>
+
+        <!-- Sección para Crear Grupo -->
+        <div class="section">
+            <h2>Crear Grupo</h2>
+            <div class="section-content">
+                <input type="text" id="grupoNombre" placeholder="Nombre del Grupo" required>
+                <button type="button" onclick="crearGrupo()">Crear</button>
+            </div>
+            <p id="mensajeGrupo"></p>
+        </div>
+
+        <!-- Sección para Crear SubGrupo -->
+        <div class="section">
+            <h2>Crear SubGrupo</h2>
+            <div class="section-content">
+                <select id="grupoSelect">
+                    <option value="">Selecciona un grupo</option>
+                    <!-- Opciones de grupos cargadas dinámicamente -->
+                </select>
+                <input type="text" id="subGrupoNombre" placeholder="Nombre del SubGrupo" required>
+                <button type="button" onclick="crearSubGrupo()">Crear</button>
+            </div>
+            <p id="mensajeSubGrupo"></p>
+        </div>
+
+        <!-- Sección para Crear Producto -->
+        <div class="section">
+            <h2>Crear Producto</h2>
+            <div class="section-content">
+                <select id="grupoProductoSelect" onchange="actualizarSubGrupos()">
+                    <option value="">Selecciona un grupo</option>
+                    <!-- Opciones de grupos cargadas dinámicamente -->
+                </select>
+                <select id="subGrupoProductoSelect">
+                    <option value="">Selecciona un subgrupo</option>
+                    <!-- Opciones de subgrupos cargadas dinámicamente -->
+                </select>
+                <input type="text" id="productoNombre" placeholder="Nombre del Producto" required>
+                <select id="unidadSelect">
+                    <option value="Kilo">Kilo</option>
+                    <option value="Gramos">Gramos</option>
+                    <option value="Litro">Litro</option>
+                    <option value="Unidad">Unidad</option>
+                </select>
+                <input type="number" id="productoValor" placeholder="Valor del Producto" required>
+
+                <button type="button" onclick="crearProducto()">Crear</button>
+            </div>
+            <p id="mensajeProducto"></p>
+        </div>
+
+        <!-- Botones para redirigir -->
+        <div class="buttons-container">
+            <button onclick="window.location.href='../html/inventario.html'">Volver</button>
+            <button onclick="window.location.href='../html/menuprin.html'">Menú Principal</button>
+        </div>
+    </div>
+
+    <script src="../js/crear.js"></script> <!-- Incluir archivo JS -->
+</body>
+</html>
