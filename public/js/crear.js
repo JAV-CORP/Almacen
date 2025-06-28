@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     actualizarGrupos();
 });
 
-// Cargar grupos en los menús desplegables
+// Cargar grupos en los menús desplegables aaaaaaa
 function cargarGrupos() {
     fetch('/obtener-grupos', {
         method: 'GET',
